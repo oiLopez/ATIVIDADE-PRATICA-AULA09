@@ -1,0 +1,24 @@
+{
+  "name": "atividade-pratica-aula09",
+  "version": "1.0.0",
+  "description": "Atividade para entrega via Teams do componente curricular Integração e Entrega Contínua do curso desenvolvimento de software e multiplataforma da FATEC Mauá ministrada pelo professor Carlos Ronny.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oiLopez/ATIVIDADE-PRATICA-AULA09.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/oiLopez/ATIVIDADE-PRATICA-AULA09/issues"
+  },
+  "homepage": "https://github.com/oiLopez/ATIVIDADE-PRATICA-AULA09#readme",
+  "devDependencies": {
+    "selenium-webdriver": "^4.43.0"
+  }
+}
