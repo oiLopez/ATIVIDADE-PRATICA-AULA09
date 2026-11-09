@@ -11,6 +11,11 @@ async function registrar(pasta, mensagem) {
   console.log(mensagem);
 }
 
+async function salvarCaptura(navegador, pasta, arquivo) {
+  const imagem = await navegador.takeScreenshot();
+  await writeFile(join(pasta, arquivo), imagem, 'base64');
+}
+
 async function testarChrome() {
   const opcoes = new chrome.Options();
   opcoes.addArguments('--headless');
@@ -29,6 +34,7 @@ async function testarChrome() {
 await mkdir(resultados, { recursive: true });
 
 const pastaExecucao = await mkdtemp(join(resultados, 'execucao-'));
+await registrar(pastaExecucao, 'Início dos testes do catálogo');
 console.log('Evidências em:', pastaExecucao);
  const caminho = join(__dirname, 'catalogo.html');
 const endereco = pathToFileURL(caminho).href;
