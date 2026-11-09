@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/oiLopez/ATIVIDADE-PRATICA-AULA09#readme",
   "devDependencies": {
+    "chai": "^4.5.0",
     "selenium-webdriver": "^4.43.0"
   }
 }
