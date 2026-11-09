@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Aula 09</title>
+</head>
+<body>
+  <nav>
+    <a href="#cursos">Cursos</a>
+  </nav>
+
+  <main id="cursos">
+    <h1>Catálogo de cursos</h1>
+
+    <form action="catalogo.html" method="get">
+    <label for="busca">Nome do curso</label>
+    <input id="busca" name="busca" type="search" required>
+    <button type="submit">Buscar</button>
+    </form>
+
+<p id="status-busca" role="status"></p>
+
+
+    <ul id="lista-cursos">
+  <li>Desenvolvimento de Software Multiplataforma</li>
+  <li>Banco de Dados</li>
+  <li>Gestão Empresarial</li>
+</ul>
+
+<div id="busca-sem-resultados" hidden>
+  <p>Nenhum curso corresponde a esse termo. Tente outro nome ou volte à lista completa.</p>
+  <a href="catalogo.html">Ver todos os cursos</a>
+</div>
+
+  </main>
+
+<script>
+  const parametros = new URLSearchParams(window.location.search);
+  const termo = (parametros.get('busca') ?? '').trim().toLowerCase();
+  const cursos = document.querySelectorAll('#lista-cursos li');
+
+  for (const curso of cursos) {
+    const nome = curso.textContent.toLowerCase();
+    curso.hidden = !nome.includes(termo);
+
+const total = document.querySelectorAll('#lista-cursos li:not([hidden])').length;
+const statusBusca = document.getElementById('status-busca');
+
+statusBusca.textContent = total === 1
+  ? '1 curso encontrado.'
+  : `${total} cursos encontrados.`;
+
+  const orientacaoBusca = document.getElementById('busca-sem-resultados');
+orientacaoBusca.hidden = total > 0;
+  }
+</script>
+
+</body>
+</html>
